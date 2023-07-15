@@ -23,4 +23,12 @@ if($Parameter2 -eq "Param2") {
   Write-Host "Parameter 2 found"
 }
 
+if($SwitchParam1) {
+  Write-Host "Switch Parameter 1 found"
+}
+
+if($SwitchParam2) {
+  Write-Host "Switch Parameter 2 found"
+}
+
 pause "Press any key to continue"
