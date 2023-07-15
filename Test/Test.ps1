@@ -31,4 +31,4 @@ if($SwitchParam2) {
   Write-Host "Switch Parameter 2 found"
 }
 
-pause "Press any key to continue"
+#pause "Press any key to continue"
