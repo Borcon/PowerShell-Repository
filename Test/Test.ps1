@@ -25,3 +25,9 @@ Write-Host "=================================="
 Write-Host "My Web Script" -ForegroundColor Yellow
 Write-Host "=================================="
 Write-Host "-AppId $AppId -AppName $AppName -UserSetup:$UserSetup -Uninstall:$Uninstall -Param $Param" -ForegroundColor Cyan
+
+if ($Uninstall) {
+    Exit 1
+} else {
+    Exit 0
+}
