@@ -1,34 +1,27 @@
-param(
-     [Parameter()]
-     [string]$Parameter1,
+[CmdletBinding()]
+Param (
+    [Parameter(Mandatory = $true)] 
+    [String] 
+    $AppId,
 
-     [Parameter()]
-     [string]$Parameter2,
+    [Parameter(Mandatory = $true)] 
+    [String] 
+    $AppName,
 
-     [Parameter()]
-     [switch]$SwitchParam1,
+    [Parameter(Mandatory = $false)] 
+    [Switch] 
+    $UserSetup,
 
-     [Parameter()]
-     [switch]$SwitchParam2
- )
+    [Parameter(Mandatory = $false)] 
+    [Switch] 
+    $Uninstall,
 
-Write-Host "Hello World" -ForegroundColor Cyan
-Write-Host "This is a remote Execution Test" -ForegroundColor Cyan
+    [Parameter(Mandatory = $false)] 
+    [String] 
+    $Param
+)
 
-if($Parameter1 -eq "Param1") {
-  Write-Host "Parameter 1 found"
-}
-
-if($Parameter2 -eq "Param2") {
-  Write-Host "Parameter 2 found"
-}
-
-if($SwitchParam1) {
-  Write-Host "Switch Parameter 1 found"
-}
-
-if($SwitchParam2) {
-  Write-Host "Switch Parameter 2 found"
-}
-
-#pause "Press any key to continue"
+Write-Host "=================================="
+Write-Host "My Web Script" -ForegroundColor Yellow
+Write-Host "=================================="
+Write-Host "-AppId $AppId -AppName $AppName -UserSetup:$UserSetup -Uninstall:$Uninstall -Param $Param" -ForegroundColor Cyan
