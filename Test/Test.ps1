@@ -27,7 +27,9 @@ Write-Host "=================================="
 Write-Host "-AppId $AppId -AppName $AppName -UserSetup:$UserSetup -Uninstall:$Uninstall -Param $Param" -ForegroundColor Cyan
 
 if ($Uninstall) {
+    Write-Host "Exit 1" -ForegroundColor Yellow
     Exit 1
 } else {
+    Write-Host "Exit 0" -ForegroundColor Green
     Exit 0
 }
