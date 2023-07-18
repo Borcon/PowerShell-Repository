@@ -98,7 +98,9 @@ if (-not(Test-Path -Path $Winget -PathType Leaf)) {
 if ($Uninstall) {
 
     try {
-        Write-Host "Uninstall"
+        Write-Host "==============="
+        Write-Host "Uninstall Setup"
+        Write-Host "==============="
         Write-Host "$Winget uninstall --exact --id $AppId --silent --accept-package-agreements --accept-source-agreements $Param"
         $Process = & "$Winget" uninstall --exact --id $AppId --silent --accept-package-agreements --accept-source-agreements $Param | Out-String
         Write-Host "Result: $LASTEXITCODE"
@@ -150,7 +152,9 @@ if ($Uninstall) {
     # INSTALL
     try {
         if ($UserSetup) {
+            Write-Host "=================="
             Write-Host "Install User Setup"
+            Write-Host "=================="
             Write-Host "$Winget install --exact --id $AppId --silent --accept-package-agreements --accept-source-agreements --scope=user $Param"
             $Process = & "$Winget" install --exact --id $AppId --silent --accept-package-agreements --accept-source-agreements --scope=user $Param
             Write-Host "Result: $LASTEXITCODE"
@@ -158,7 +162,9 @@ if ($Uninstall) {
             Write-Host $Process
             Write-Host "------------------------------ Output Console End ------------------------------"
         } else {
+            Write-Host "====================="
             Write-Host "Install Machine Setup"
+            Write-Host "====================="
             Write-Host "$Winget install --exact --id $AppId --silent --accept-package-agreements --accept-source-agreements --scope=machine $Param"
             $Process = & "$Winget" install --exact --id $AppId --silent --accept-package-agreements --accept-source-agreements --scope=machine $Param
             Write-Host "Result: $LASTEXITCODE"
