@@ -1,4 +1,4 @@
-﻿# Intune WinGet Template Version 1.0
+# Intune WinGet Template Version 1.0
 # Put this command line as Install Cmd (this command uses x64 Powershell):
 # "%systemroot%\sysnative\WindowsPowerShell\v1.0\powershell.exe" -WindowStyle Hidden -NoProfile -ExecutionPolicy Bypass -File winget-install.ps1 -AppId Notepad++.Notepad++ -AppName Notepad++
 
@@ -40,6 +40,11 @@ if ($Uninstall) {
 # ======================
 # PREPARE
 # ======================
+# Cleanup Logs
+if (Test-Path -Path $LogFile -PathType Leaf) {
+    Remove-Item -Path $LogFile -Force
+}
+
 # Start Logging
 Start-Transcript -Path $LogFile -Force -Append
 
@@ -111,7 +116,10 @@ if ($Uninstall) {
     }
 
     #Get "Winget List AppID"
+    Write-Host ""
+    Write-Host "======================"
     Write-Host "Check Uninstall Result"
+    Write-Host "======================"
     $InstalledApp = & "$Winget" list --Id $AppId --accept-source-agreements | Out-String
     Write-Host "Result: $LASTEXITCODE"
     Write-Host "------------------------------ Output Console Start ------------------------------"
@@ -170,7 +178,9 @@ if ($Uninstall) {
 
     #Get "Winget List AppID"
     Write-Host ""
+    Write-Host "===================="
     Write-Host "Check Install Result"
+    Write-Host "===================="
     $InstalledApp = & "$Winget" list --Id $AppId --accept-source-agreements | Out-String
     Write-Host "Result: $LASTEXITCODE"
     Write-Host "------------------------------ Output Console Start ------------------------------"
