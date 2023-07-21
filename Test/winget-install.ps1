@@ -101,8 +101,8 @@ if ($Uninstall) {
         Write-Host "==============="
         Write-Host "Uninstall Setup"
         Write-Host "==============="
-        Write-Host "$Winget uninstall --exact --id $AppId --silent --accept-package-agreements --accept-source-agreements $Param"
-        $Process = & "$Winget" uninstall --exact --id $AppId --silent --accept-package-agreements --accept-source-agreements $Param | Out-String
+        Write-Host "$Winget uninstall --exact --id $AppId --silent --accept-source-agreements $Param"
+        $Process = & "$Winget" uninstall --exact --id $AppId --silent --accept-source-agreements $Param | Out-String
         Write-Host "Result: $LASTEXITCODE"
         Write-Host "------------------------------ Console Output ------------------------------"
         Write-Host $Process
